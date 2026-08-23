@@ -24,3 +24,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Gambitol"
 include(":app")
+include(":chess-engine")
