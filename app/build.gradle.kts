@@ -32,6 +32,7 @@ android {
 }
 
 dependencies {
+    implementation(project(":chess-engine"))
     implementation(libs.activity.ktx)
     implementation(libs.appcompat)
     implementation(libs.constraintlayout)
