@@ -1,10 +1,11 @@
 # 00 — GUIA MESTRE DE DOCUMENTAÇÃO DO GAMBITOL
 
 > **Projeto:** Gambitol  
-> **Documento:** 00_GUIA_MESTRE.md  
-> **Versão inicial:** 1.0  
-> **Status:** ATIVO após aprovação do mantenedor  
-> **Data de criação:** 22/08/2026  
+> **Documento:** `00_GUIA_MESTRE.md`  
+> **Versão:** 1.1  
+> **Status:** ATIVO  
+> **Criado em:** 2026-08-22  
+> **Última revisão:** 2026-08-24  
 > **Idioma principal:** Português do Brasil  
 > **Função:** documento-raiz e regra de navegação de toda a documentação do projeto  
 > **Escopo:** governança documental, precedência, atualização, pesquisa, uso das fontes e prevenção de perda de contexto  
@@ -12,7 +13,7 @@
 
 ---
 
-## 1. Por que este documento existe
+# 1. Por que este documento existe
 
 O Gambitol não será tratado apenas como um aplicativo que precisa “funcionar”. Ele será desenvolvido simultaneamente como:
 
@@ -23,57 +24,118 @@ O Gambitol não será tratado apenas como um aplicativo que precisa “funcionar
 5. um produto com intenção de publicação na Google Play Store;
 6. um possível ativo comercial e de construção de reputação profissional.
 
-Esses objetivos criam um risco previsível: conforme o projeto crescer, decisões podem ficar espalhadas entre conversas, código, README, memória, prints, documentação externa e novas ideias. Sem um sistema claro, o projeto começa a sofrer de “amnésia arquitetural”: decisões são refeitas, regras entram em conflito, o código diverge da intenção original e a documentação passa a descrever um sistema que já não existe.
+Esses objetivos criam um risco previsível: conforme o projeto crescer, decisões podem ficar espalhadas entre conversas, código, README, memória, prints, documentação e novas ideias.
+
+Sem um sistema claro, decisões são refeitas, regras entram em conflito, o código diverge da intenção original e a documentação passa a descrever um sistema que já não existe.
 
 Este documento existe para impedir isso.
 
-O `00_GUIA_MESTRE.md` é o ponto de entrada da documentação do Gambitol. Ele explica:
+O `00_GUIA_MESTRE.md` é o ponto de entrada da documentação oficial do Gambitol. Ele explica:
 
-- quais documentos compõem a fonte de verdade do projeto;
+- quais documentos fazem parte da documentação oficial;
 - qual é a responsabilidade de cada documento;
 - qual fonte prevalece quando duas informações entram em conflito;
 - como diferenciar decisão, proposta, estado atual e informação externa;
-- quando uma documentação precisa ser atualizada;
+- quando uma documentação realmente precisa ser atualizada;
 - como novas decisões devem ser registradas;
 - como informações externas devem ser pesquisadas e verificadas;
 - como o tutor de IA deve consultar as fontes antes de orientar mudanças;
 - como evitar que documentação, código e objetivos se afastem entre si.
 
-A função deste arquivo é governar a documentação. Ele não deve virar um depósito onde todas as outras documentações são repetidas.
+A função deste arquivo é governar a documentação.
+
+Ele não deve virar:
+
+- diário do desenvolvimento;
+- changelog;
+- histórico de branches;
+- lista de classes criadas;
+- registro de cada teste;
+- duplicação dos outros documentos.
 
 ---
 
-## 2. Decisões já estabelecidas no início do projeto
+# 2. Localização oficial da documentação
 
-As seguintes decisões já foram definidas e não devem ser alteradas silenciosamente:
+## DECIDIDO
 
-| Item | Decisão atual |
+A documentação oficial do Gambitol é versionada junto ao código no repositório oficial:
+
+```text
+RAIONORIO/gambitol
+└── docs/
+```
+
+A pasta contém:
+
+```text
+00_GUIA_MESTRE.md
+01_VISAO_E_OBJETIVOS.md
+02_METODO_DE_ENSINO.md
+03_ARQUITETURA_DO_GAMBITOL.md
+04_ESTRUTURA_DO_PROJETO.md
+05_REGRAS_DO_MOTOR_DE_XADREZ.md
+06_PADROES_JAVA_E_ANDROID.md
+07_GIT_WORKFLOW.md
+08_TESTES_E_QUALIDADE.md
+09_UI_UX_GAMBITOL.md
+10_ROADMAP_E_ESCOPO.md
+11_DECISOES_TECNICAS.md
+12_PLAY_STORE_E_RELEASE.md
+13_MONETIZACAO.md
+14_CONTEUDO_E_PORTFOLIO.md
+15_TROUBLESHOOTING.md
+```
+
+Esses arquivos são mantidos pelo mesmo workflow Git aplicado ao restante do projeto.
+
+Cópias existentes em:
+
+- conversas antigas;
+- arquivos locais não versionados;
+- uploads antigos;
+- anotações;
+- mensagens;
+- outras ferramentas;
+
+não substituem a versão vigente no repositório.
+
+Quando existir diferença entre uma cópia antiga e o arquivo correspondente na `main`, a versão do repositório oficial deve ser considerada a referência documental versionada atual, salvo alteração local ainda não integrada que esteja sendo analisada explicitamente.
+
+---
+
+# 3. Decisões fundamentais já estabelecidas
+
+As seguintes decisões não devem ser alteradas silenciosamente:
+
+| Item | Decisão vigente |
 |---|---|
 | Nome do jogo | Gambitol |
-| Nome do repositório/pasta principal | `gambitol` |
+| Repositório/pasta principal | `gambitol` |
 | Plataforma inicial | Android |
-| Categoria | Jogo mobile de xadrez |
+| Categoria | jogo mobile de xadrez |
 | Linguagem principal | Java |
-| Package/Application namespace definido | `br.com.raionorio.gambitol` |
-| IDE principal para Android | Android Studio |
-| Terminal principal durante o desenvolvimento | Git Bash no Windows |
-| Sistema de build | Gradle, usando o Gradle Wrapper do projeto |
-| Objetivo de distribuição | Google Play Store |
-| Estratégia didática | desenvolvimento rápido com acompanhamento de tutor, sem transformar código em caixa-preta |
-| Regra arquitetural já aprovada | lógica de xadrez separada da interface Android |
-| Referência visual inicial | mockup premium escuro do Gambitol, com dourado, verde, tabuleiro central, jogadores, cronômetros e controles |
+| Package/Application namespace | `br.com.raionorio.gambitol` |
+| IDE principal | Android Studio |
+| Terminal principal | Git Bash no Windows |
+| Build | Gradle com Gradle Wrapper |
+| Distribuição pretendida | Google Play Store |
+| Estratégia didática | desenvolvimento rápido com acompanhamento e compreensão |
+| Princípio arquitetural | regras do xadrez separadas da interface Android |
+| Motor | Java puro, independente da camada Android |
+| Direção de dependência | `:app -> :chess-engine` |
 
-Esses itens são fatos aprovados do projeto.
+Decisões técnicas mais específicas pertencem aos documentos especializados e ao `11_DECISOES_TECNICAS.md`.
 
-Qualquer proposta futura que contradiga um deles deve ser apresentada explicitamente como **mudança de decisão**, com justificativa e aprovação. Não se deve modificar um deles “porque parece melhor” durante uma implementação.
+Qualquer proposta que contradiga uma decisão vigente deve ser tratada explicitamente como mudança de decisão, com contexto, impacto e aprovação.
 
 ---
 
-## 3. O que ainda NÃO deve ser tratado como decisão
+# 4. O que não deve ser tratado automaticamente como decisão
 
-Ideias futuras não são automaticamente requisitos.
+Ideias futuras não são requisitos apenas porque foram discutidas.
 
-Enquanto não forem aprovadas, itens como os seguintes devem ser tratados como possibilidades:
+Enquanto não forem aprovadas, itens como estes continuam sendo possibilidades:
 
 - inteligência artificial adversária;
 - multiplayer online;
@@ -88,183 +150,222 @@ Enquanto não forem aprovadas, itens como os seguintes devem ser tratados como p
 - backend próprio;
 - banco de dados remoto;
 - tecnologia específica de persistência;
-- arquitetura final de todas as camadas;
 - bibliotecas externas ainda não escolhidas;
 - sistema definitivo de navegação;
 - motor externo de xadrez;
-- engine própria versus biblioteca para IA;
+- IA própria versus integração externa;
 - orientation lock;
-- suporte a tablets ou dobráveis como requisito de primeira versão.
+- requisitos específicos de tablets ou dobráveis.
 
-A documentação deve distinguir claramente:
+A documentação deve distinguir:
 
-**DECIDIDO**  
+## DECIDIDO
+
 Algo aprovado e vigente.
 
-**PROPOSTO**  
+## PROPOSTO
+
 Uma ideia em avaliação.
 
-**PENDENTE**  
-Algo que precisa de decisão antes de avançar.
+## PENDENTE
 
-**FUTURO**  
-Algo considerado para versões posteriores, sem compromisso atual.
+Algo que precisa de decisão antes de determinada etapa.
 
-Isso evita uma das formas mais comuns de desvio de escopo: uma sugestão aparecer em uma conversa e semanas depois ser tratada como se sempre tivesse sido requisito.
+## FUTURO
 
----
+Algo considerado para evolução posterior, sem compromisso atual.
 
-# 4. Princípios de documentação adotados
+## HISTÓRICO
 
-A estrutura documental do Gambitol foi desenhada a partir de práticas consolidadas de documentação e arquitetura de software, adaptadas para um projeto individual que também possui objetivo didático.
+Algo verdadeiro em determinado momento, preservado apenas para contexto.
 
-Não será adotado nenhum framework de documentação de forma religiosa. O projeto usará somente aquilo que trouxer valor real.
+## SUBSTITUÍDO
 
-## 4.1 Documentação deve ter um ponto de entrada claro
+Uma decisão antiga que deixou de ser vigente por decisão posterior.
 
-O GitHub recomenda que todo repositório possua um README capaz de explicar o projeto e facilitar sua navegação. O próprio GitHub também observa que documentação extensa não precisa ficar concentrada no README.
-
-Aplicação no Gambitol:
-
-- `README.md` continua sendo a apresentação rápida do repositório;
-- `00_GUIA_MESTRE.md` é a porta de entrada para a documentação interna;
-- os demais documentos aprofundam assuntos específicos;
-- o README não deve duplicar integralmente as documentações;
-- links relativos devem ser usados quando os arquivos estiverem no repositório.
-
-O usuário que chega ao repositório precisa entender rapidamente “o que é o Gambitol”.  
-O desenvolvedor ou tutor que precisa tomar uma decisão precisa saber “qual documento consultar”.
-
-São necessidades diferentes.
+Essa classificação evita que uma sugestão apareça em uma conversa e meses depois seja tratada como requisito oficial por geração espontânea, um talento humano bastante persistente.
 
 ---
 
-## 4.2 Uma informação importante deve possuir um lugar oficial
+# 5. Princípios de documentação adotados
 
-A arquitetura Android recomenda o princípio de **Single Source of Truth (SSOT)** para dados: uma informação deve possuir um proprietário claro, responsável por suas alterações.
+A documentação do Gambitol utiliza práticas consolidadas de documentação e arquitetura, adaptadas para um projeto individual com objetivo profissional e didático.
 
-O Gambitol aplica o mesmo raciocínio à documentação.
+Nenhum framework será seguido de forma religiosa.
+
+A documentação deve existir porque ajuda a:
+
+- preservar decisões;
+- orientar implementação;
+- ensinar conceitos;
+- reduzir perda de contexto;
+- facilitar manutenção;
+- sustentar testes;
+- preparar publicação;
+- explicar o projeto profissionalmente.
+
+---
+
+## 5.1 README e documentação possuem funções diferentes
+
+O `README.md` é a apresentação rápida do repositório.
+
+Ele deve ajudar alguém a entender rapidamente:
+
+- o que é o Gambitol;
+- seu objetivo;
+- stack principal;
+- estado geral;
+- como executar quando aplicável;
+- onde está a documentação.
+
+A documentação detalhada está em:
+
+```text
+docs/
+```
+
+O ponto inicial é:
+
+```text
+docs/00_GUIA_MESTRE.md
+```
+
+O README não deve duplicar integralmente arquitetura, regras do motor, workflow, testes ou roadmap.
+
+---
+
+## 5.2 Uma informação importante deve possuir um lugar oficial
+
+Uma decisão ou regra relevante deve ter um proprietário documental claro.
 
 Exemplos:
 
-- regras oficiais do projeto sobre ensino pertencem a `02_METODO_DE_ENSINO.md`;
-- estrutura de packages pertence a `04_ESTRUTURA_DO_PROJETO.md`;
-- regras do jogo pertencem a `05_REGRAS_DO_MOTOR_DE_XADREZ.md`;
-- decisões arquitetônicas aceitas pertencem ao registro de decisões;
-- requisitos de publicação pertencem a `12_PLAY_STORE_E_RELEASE.md`.
+- visão e objetivos → `01_VISAO_E_OBJETIVOS.md`;
+- método de ensino → `02_METODO_DE_ENSINO.md`;
+- arquitetura → `03_ARQUITETURA_DO_GAMBITOL.md`;
+- estrutura física → `04_ESTRUTURA_DO_PROJETO.md`;
+- regras do xadrez → `05_REGRAS_DO_MOTOR_DE_XADREZ.md`;
+- padrões Java/Android → `06_PADROES_JAVA_E_ANDROID.md`;
+- Git → `07_GIT_WORKFLOW.md`;
+- testes → `08_TESTES_E_QUALIDADE.md`;
+- UI/UX → `09_UI_UX_GAMBITOL.md`;
+- roadmap → `10_ROADMAP_E_ESCOPO.md`;
+- decisões técnicas → `11_DECISOES_TECNICAS.md`;
+- release → `12_PLAY_STORE_E_RELEASE.md`;
+- monetização → `13_MONETIZACAO.md`;
+- conteúdo/portfólio → `14_CONTEUDO_E_PORTFOLIO.md`;
+- troubleshooting → `15_TROUBLESHOOTING.md`.
 
 Outro documento pode referenciar a informação, mas deve evitar criar uma segunda versão independente dela.
 
-Duplicação documental é perigosa porque as cópias inevitavelmente envelhecem em velocidades diferentes.
+Duplicação documental é perigosa porque cópias envelhecem em velocidades diferentes.
 
 ---
 
-## 4.3 Documentação não é um único tipo de texto
+## 5.3 Documentação não é um único tipo de texto
 
-O modelo Diátaxis distingue quatro necessidades documentais:
+O Gambitol utiliza, quando útil, a distinção proposta pelo Diátaxis:
 
-- **tutorial:** ajuda alguém a aprender;
-- **how-to:** orienta alguém a executar uma tarefa;
-- **referência:** descreve informações precisas para consulta;
-- **explicação:** ajuda a entender conceitos e decisões.
+- tutorial;
+- how-to;
+- referência;
+- explicação.
 
-O Gambitol usará essa distinção como ferramenta de qualidade, não como obrigação burocrática.
+Um mesmo arquivo pode combinar categorias quando isso melhorar a leitura.
 
-Um mesmo arquivo pode ter um propósito dominante e pequenas seções de outro tipo quando isso facilitar a leitura.
-
-Exemplos:
-
-- `02_METODO_DE_ENSINO.md` é principalmente orientação didática;
-- `05_REGRAS_DO_MOTOR_DE_XADREZ.md` será principalmente referência;
-- `07_GIT_WORKFLOW.md` será principalmente how-to + política;
-- `03_ARQUITETURA_DO_GAMBITOL.md` será principalmente explicação e referência;
-- `15_TROUBLESHOOTING.md` será principalmente how-to baseado em incidentes reais.
-
-Não serão criadas pastas vazias apenas para satisfazer uma taxonomia. A própria orientação do Diátaxis desencoraja criar estruturas vazias sem conteúdo real.
+A taxonomia existe para ajudar o conteúdo, não para criar pastas e burocracia sem necessidade.
 
 ---
 
-## 4.4 Arquitetura deve registrar objetivos, restrições e decisões
+## 5.4 Arquitetura deve registrar objetivos, restrições e decisões
 
-O arc42 enfatiza que arquitetura não deve ser apenas desenho de caixas. Ela precisa tornar claros:
+Arquitetura não deve ser apenas desenho de caixas.
+
+Documentação arquitetural relevante deve tornar claros, quando aplicável:
 
 - objetivos;
 - requisitos de qualidade;
 - restrições;
 - contexto;
-- estratégia da solução;
-- blocos principais;
-- decisões relevantes.
+- estratégia;
+- limites;
+- responsabilidades;
+- decisões importantes.
 
-Aplicação no Gambitol:
+O Gambitol deve ser arquitetado para seu tamanho real.
 
-- não documentaremos arquitetura como decoração;
-- cada camada ou package importante precisa ter responsabilidade explicável;
-- uma decisão arquitetural deve existir porque resolve um problema real;
-- restrições como “Java como linguagem principal” devem ser registradas;
-- requisitos de qualidade como testabilidade, clareza e manutenção devem influenciar as decisões.
-
-O projeto deve ser arquitetado para seu tamanho real. Não haverá “arquitetura enterprise” teatral para um jogo mobile individual.
+Não haverá arquitetura complexa apenas para parecer um projeto maior do que é.
 
 ---
 
-## 4.5 Decisões significativas precisam preservar o “por quê”
+## 5.5 Decisões significativas precisam preservar o “por quê”
 
-A AWS recomenda o uso de Architectural Decision Records (ADRs) para registrar decisões arquiteturalmente relevantes, incluindo contexto, decisão e consequências. Um princípio particularmente útil é preservar decisões aceitas em vez de reescrevê-las retroativamente.
+O `11_DECISOES_TECNICAS.md` é o registro central das decisões técnicas duradouras.
 
-Aplicação no Gambitol:
+Uma decisão significativa deve preservar quando necessário:
 
-- `11_DECISOES_TECNICAS.md` funcionará inicialmente como registro central das decisões;
-- decisões importantes devem guardar contexto, alternativas relevantes, decisão e consequência;
-- uma decisão antiga não deve ser apagada para fazer parecer que a decisão nova sempre existiu;
-- se uma decisão for substituída, o histórico deverá indicar por qual decisão ela foi substituída;
-- se o volume crescer, decisões arquitetônicas grandes poderão ganhar ADRs individuais posteriormente.
+```text
+contexto
+problema
+alternativas
+decisão
+motivo
+consequências
+trade-offs
+impactos
+```
 
-O objetivo não é produzir atas. É impedir que o mesmo problema seja rediscutido do zero e permitir explicar por que o projeto chegou à arquitetura atual.
+Uma decisão antiga não deve ser apagada apenas para fazer parecer que a nova sempre existiu.
 
----
-
-## 4.6 Diagramas devem revelar níveis de detalhe progressivamente
-
-O modelo C4 propõe níveis de zoom para arquitetura: contexto do sistema, containers, componentes e código. O próprio C4 deixa claro que nem todo projeto precisa de todos os níveis; os diagramas devem existir apenas quando agregarem valor.
-
-Aplicação futura no Gambitol:
-
-- começar pelo contexto geral do aplicativo;
-- documentar a divisão entre Android/UI e motor de xadrez;
-- detalhar componentes somente quando a complexidade justificar;
-- evitar diagramas enormes de classes que ficam obsoletos após duas refatorações;
-- todo diagrama deve responder a uma pergunta concreta.
-
-Diagrama sem objetivo é apenas decoração com setas.
+Quando uma decisão for substituída, o histórico deve registrar a mudança.
 
 ---
 
-## 4.7 O código e a documentação cumprem papéis diferentes
+## 5.6 Diagramas devem existir apenas quando agregam valor
 
-Um princípio essencial deste projeto:
+Diagramas podem usar princípios do modelo C4 quando forem úteis.
+
+A preferência é começar pelo nível mais simples capaz de responder à pergunta existente.
+
+Evitar:
+
+- diagramas gigantes;
+- diagramas de classes que envelhecem a cada refatoração;
+- desenho ornamental;
+- duplicação visual do que o código já deixa óbvio.
+
+Todo diagrama deve ter propósito.
+
+---
+
+## 5.7 Código e documentação cumprem papéis diferentes
+
+Princípio:
 
 > **Código mostra o que existe. Documentação normativa mostra o que foi decidido que deve existir.**
 
-Se `04_ESTRUTURA_DO_PROJETO.md` disser que o motor não deve depender de Android, mas aparecer uma importação de `android.*` dentro do motor, o código não “vence” automaticamente. Isso pode indicar uma violação arquitetural.
+Se a documentação disser que o motor não depende de Android e aparecer `android.*` dentro do engine, isso não significa automaticamente que a arquitetura mudou.
 
-Por outro lado, se a documentação afirmar que uma classe existe, mas o repositório real mostrar que ela foi removida, a documentação pode estar desatualizada.
+Pode ser uma violação.
 
-Portanto, conflitos devem ser classificados antes de serem resolvidos.
+Por outro lado, se um documento descrever como atual uma configuração que o repositório já não possui, o documento pode estar desatualizado.
+
+Conflitos devem ser diagnosticados antes de serem corrigidos.
 
 ---
 
-# 5. Dois tipos de fonte de verdade: normativa e descritiva
+# 6. Fonte normativa e fonte descritiva
 
-O Gambitol adota dois conceitos complementares.
+O Gambitol distingue dois tipos principais de fonte.
 
-## 5.1 Fonte normativa
+## 6.1 Fonte normativa
 
 Responde:
 
 > Como o projeto deve funcionar, ser organizado ou ser conduzido?
 
-Exemplos:
+Inclui:
 
 - decisões aprovadas;
 - arquitetura;
@@ -274,204 +375,212 @@ Exemplos:
 - workflow;
 - critérios de qualidade.
 
-Fontes normativas principais:
+Fontes principais:
 
 - decisão explícita atual do mantenedor;
-- documentos ATIVOS;
+- documentos vigentes;
 - registro de decisões aceitas.
 
-## 5.2 Fonte descritiva
+---
+
+## 6.2 Fonte descritiva
 
 Responde:
 
 > Qual é o estado real do projeto neste momento?
 
-Exemplos:
+Inclui:
 
-- arquivos que existem;
+- arquivos existentes;
 - conteúdo atual de uma classe;
 - branch atual;
-- dependências instaladas;
-- resultado de um build;
-- resultado de testes;
-- versão realmente configurada;
-- erro que realmente ocorreu.
+- dependências;
+- configuração;
+- resultado de build;
+- resultado de teste;
+- logs;
+- erros.
 
-Fontes descritivas principais:
+Fontes principais:
 
-- repositório real;
+- repositório;
+- working tree local;
 - `git status`;
 - `git diff`;
 - arquivos atuais;
-- saída do Gradle;
+- Gradle;
 - testes;
 - Android Studio;
 - Logcat;
-- ferramentas oficiais de diagnóstico.
+- ferramentas de diagnóstico.
 
-Essa distinção impede dois erros:
+Essa distinção evita:
 
-1. inventar o estado do projeto a partir de uma documentação antiga;
-2. aceitar uma violação do projeto apenas porque “o código está assim”.
+1. inventar estado atual a partir de documentação;
+2. tratar qualquer estado acidental do código como decisão arquitetural.
 
 ---
 
-# 6. Regra de precedência em caso de conflito
+# 7. Regra de precedência em caso de conflito
 
-Quando duas fontes se contradisserem, NÃO escolher arbitrariamente. Aplicar esta sequência.
+Quando duas fontes se contradisserem, não escolher arbitrariamente.
+
+Aplicar esta ordem.
 
 ## Nível 0 — decisão explícita e atual do mantenedor
 
-Uma decisão explícita tomada agora pelo responsável do projeto prevalece sobre documentos antigos.
+Uma decisão atual do responsável pelo projeto prevalece sobre registros anteriores.
 
-Ela deve, porém, ser registrada na documentação apropriada se tiver efeito duradouro.
-
-Exemplo:
-
-> “Não vamos mais usar a biblioteca X.”
-
-Essa decisão passa a valer e a documentação deve ser corrigida.
+Se tiver efeito duradouro, deve ser registrada na documentação apropriada.
 
 ---
 
-## Nível 1 — este Guia Mestre para regras de governança
+## Nível 1 — este Guia Mestre
 
 O `00_GUIA_MESTRE.md` governa:
 
-- qual documento consultar;
-- como resolver conflito;
-- como atualizar documentação;
-- como classificar informação;
-- como pesquisar fontes externas.
+- precedência;
+- atualização;
+- classificação;
+- organização documental;
+- uso das fontes.
 
-Ele não deve sobrescrever detalhes técnicos pertencentes aos documentos especializados.
+Ele não substitui detalhes pertencentes aos documentos especializados.
 
 ---
 
 ## Nível 2 — decisão técnica aceita e vigente
 
-Uma decisão registrada como vigente em `11_DECISOES_TECNICAS.md` ou ADR equivalente prevalece sobre uma descrição arquitetural mais antiga que ainda não foi atualizada.
+Uma decisão vigente registrada no `11_DECISOES_TECNICAS.md` ou em ADR equivalente prevalece sobre descrição antiga ainda não corrigida.
 
-Isso exige depois corrigir o documento desatualizado.
+O documento desatualizado deve então ser alinhado.
 
 ---
 
-## Nível 3 — documento especializado ATIVO
+## Nível 3 — documento especializado vigente
 
-Para o assunto específico, consultar o documento responsável.
+Para detalhes de um assunto, consultar o documento responsável.
 
 Exemplos:
 
-- regras do xadrez → `05_REGRAS_DO_MOTOR_DE_XADREZ.md`;
+- xadrez → `05_REGRAS_DO_MOTOR_DE_XADREZ.md`;
 - Git → `07_GIT_WORKFLOW.md`;
 - UI/UX → `09_UI_UX_GAMBITOL.md`;
 - Play Store → `12_PLAY_STORE_E_RELEASE.md`.
 
 ---
 
-## Nível 4 — estado real do repositório e ferramentas
+## Nível 4 — estado real do projeto
 
-Para perguntas descritivas como “qual arquivo existe?”, “qual versão está configurada?” ou “o build passou?”, o estado real do projeto prevalece.
+Para perguntas descritivas como:
 
-Nunca usar documentação como prova de que um build passou.
+- qual arquivo existe?
+- qual versão está configurada?
+- qual branch está ativa?
+- o teste passou?
+- o build funcionou?
+
+usar evidência real do projeto.
+
+Documentação não prova que um comando funcionou.
 
 ---
 
-## Nível 5 — fonte externa oficial e atualizada
+## Nível 5 — fonte externa oficial e atual
 
-Para fatos controlados por terceiros, como:
+Para fatos controlados por terceiros:
 
 - requisitos da Google Play;
 - APIs Android;
 - compatibilidade Gradle;
 - políticas;
-- regras oficiais do xadrez;
+- Java;
+- regras oficiais de xadrez;
 
-uma fonte oficial atualizada prevalece sobre uma documentação interna desatualizada.
-
-Porém, antes de agir em uma mudança significativa, o documento interno correspondente deve ser atualizado ou claramente marcado como desatualizado.
+fontes oficiais atuais prevalecem sobre informação interna envelhecida.
 
 ---
 
 ## Nível 6 — fontes secundárias e comunidade
 
-Artigos, fóruns, Stack Overflow, Reddit, vídeos e discussões podem fornecer contexto, casos reais e pistas de troubleshooting.
+Podem incluir:
 
-Eles não devem substituir:
+- GitHub Issues;
+- Stack Overflow;
+- fóruns;
+- Reddit;
+- vídeos técnicos;
+- artigos.
 
-- documentação oficial de API;
-- política oficial da Play Store;
-- regra oficial da FIDE;
-- resultado real de build/teste.
+Servem como apoio, experiência prática e pista de troubleshooting.
 
-Comunidade é excelente para descobrir problemas. É péssima como autoridade automática.
+Não substituem automaticamente fonte oficial ou evidência executável.
 
 ---
 
-## Nível 7 — sugestão do tutor/IA
+## Nível 7 — sugestão do tutor
 
-Uma sugestão do tutor nunca se torna decisão apenas porque foi escrita.
+Uma sugestão do tutor não se torna decisão porque foi escrita.
 
-Antes de alterar:
+Decisões relevantes sobre:
 
-- nome;
+- nomes;
 - arquitetura;
 - tecnologia;
-- dependência;
+- dependências;
 - escopo;
 - monetização;
-- identidade;
-- package;
-- estratégia de release;
+- packages;
+- release;
 
-a proposta precisa ser apresentada e aprovada quando representar decisão relevante.
-
----
-
-# 7. Catálogo oficial de documentos
-
-A numeração define ordem lógica de leitura, não “importância absoluta”.
-
-| Nº | Arquivo | Responsabilidade | Tipo dominante | Status inicial |
-|---|---|---|---|---|
-| 00 | `00_GUIA_MESTRE.md` | governança e navegação documental | referência/explicação | ATIVO |
-| 01 | `01_VISAO_E_OBJETIVOS.md` | propósito, metas e princípios do produto | explicação | PLANEJADO |
-| 02 | `02_METODO_DE_ENSINO.md` | método didático do tutor e aprendizagem | how-to/explicação | PLANEJADO |
-| 03 | `03_ARQUITETURA_DO_GAMBITOL.md` | arquitetura, limites e responsabilidades | explicação/referência | PLANEJADO |
-| 04 | `04_ESTRUTURA_DO_PROJETO.md` | packages, diretórios e localização do código | referência | PLANEJADO |
-| 05 | `05_REGRAS_DO_MOTOR_DE_XADREZ.md` | regras de domínio do xadrez implementadas | referência | PLANEJADO |
-| 06 | `06_PADROES_JAVA_E_ANDROID.md` | padrões de código e plataforma | referência | PLANEJADO |
-| 07 | `07_GIT_WORKFLOW.md` | branches, staging, commits, merges e releases | how-to/política | PLANEJADO |
-| 08 | `08_TESTES_E_QUALIDADE.md` | estratégia e critérios de testes/qualidade | referência/how-to | PLANEJADO |
-| 09 | `09_UI_UX_GAMBITOL.md` | interface, experiência e referência visual | referência/explicação | PLANEJADO |
-| 10 | `10_ROADMAP_E_ESCOPO.md` | fases, MVP e fronteiras de escopo | referência | PLANEJADO |
-| 11 | `11_DECISOES_TECNICAS.md` | histórico das decisões relevantes | referência histórica | PLANEJADO |
-| 12 | `12_PLAY_STORE_E_RELEASE.md` | publicação, versionamento e Play Console | how-to/referência | PLANEJADO |
-| 13 | `13_MONETIZACAO.md` | hipóteses e decisões de monetização | explicação/referência | PLANEJADO |
-| 14 | `14_CONTEUDO_E_PORTFOLIO.md` | conteúdo técnico e comunicação profissional | how-to | PLANEJADO |
-| 15 | `15_TROUBLESHOOTING.md` | problemas reais, diagnóstico e solução | how-to/referência | PLANEJADO |
-
-### Regra
-
-Um documento com status `PLANEJADO` não possui autoridade sobre o projeto porque ainda não foi criado/aprovado.
-
-Não inventar seu conteúdo com base apenas no nome.
+precisam seguir o processo de decisão do projeto.
 
 ---
 
-# 8. Ordem mínima de consulta por tipo de trabalho
+# 8. Catálogo oficial de documentos
 
-O tutor não precisa reler todos os documentos para cada vírgula alterada. Deve carregar o conjunto mínimo relevante.
+A numeração define ordem lógica de referência.
 
-## Antes de qualquer trabalho importante
+| Nº | Arquivo | Responsabilidade principal |
+|---|---|---|
+| 00 | `00_GUIA_MESTRE.md` | governança e navegação documental |
+| 01 | `01_VISAO_E_OBJETIVOS.md` | propósito, metas e princípios |
+| 02 | `02_METODO_DE_ENSINO.md` | método didático e aprendizagem |
+| 03 | `03_ARQUITETURA_DO_GAMBITOL.md` | arquitetura e responsabilidades |
+| 04 | `04_ESTRUTURA_DO_PROJETO.md` | estrutura física, módulos e packages |
+| 05 | `05_REGRAS_DO_MOTOR_DE_XADREZ.md` | regras de domínio do xadrez |
+| 06 | `06_PADROES_JAVA_E_ANDROID.md` | padrões de Java e Android |
+| 07 | `07_GIT_WORKFLOW.md` | workflow Git e GitHub |
+| 08 | `08_TESTES_E_QUALIDADE.md` | estratégia de testes e qualidade |
+| 09 | `09_UI_UX_GAMBITOL.md` | interface e experiência |
+| 10 | `10_ROADMAP_E_ESCOPO.md` | fases e fronteiras de escopo |
+| 11 | `11_DECISOES_TECNICAS.md` | histórico de decisões relevantes |
+| 12 | `12_PLAY_STORE_E_RELEASE.md` | publicação e release |
+| 13 | `13_MONETIZACAO.md` | monetização |
+| 14 | `14_CONTEUDO_E_PORTFOLIO.md` | conteúdo e comunicação profissional |
+| 15 | `15_TROUBLESHOOTING.md` | diagnóstico e solução de problemas |
+
+O status de cada documento pertence ao próprio cabeçalho do arquivo.
+
+Este catálogo não deve duplicar status, versão ou última revisão dos demais documentos, evitando manutenção redundante.
+
+---
+
+# 9. Ordem mínima de consulta por tipo de trabalho
+
+O tutor não precisa reler todos os documentos para cada alteração.
+
+Deve consultar o conjunto mínimo relevante.
+
+## Antes de trabalho importante
 
 Consultar:
 
-1. `00_GUIA_MESTRE.md`;
-2. o documento especializado do assunto;
-3. `11_DECISOES_TECNICAS.md` quando a ação envolver decisão relevante.
+1. este Guia Mestre;
+2. documento especializado;
+3. `11_DECISOES_TECNICAS.md` quando houver decisão relevante.
 
-## Alteração de arquitetura
+## Arquitetura
 
 Consultar:
 
@@ -484,7 +593,7 @@ Consultar:
 - 10;
 - 11.
 
-## Criação de classe/package estrutural
+## Classe ou package estrutural
 
 Consultar:
 
@@ -494,7 +603,7 @@ Consultar:
 - 06;
 - 11.
 
-## Implementação de regra de xadrez
+## Regra de xadrez
 
 Consultar:
 
@@ -504,7 +613,7 @@ Consultar:
 - 08;
 - 11.
 
-## Trabalho de UI
+## UI
 
 Consultar:
 
@@ -514,7 +623,16 @@ Consultar:
 - 10;
 - 11.
 
-## Git, branch, commit ou release
+## Git
+
+Consultar:
+
+- 00;
+- 07;
+- 10;
+- 11.
+
+## Release
 
 Consultar:
 
@@ -522,9 +640,9 @@ Consultar:
 - 07;
 - 10;
 - 11;
-- 12 quando envolver distribuição.
+- 12.
 
-## Ensino ou explicação
+## Ensino
 
 Consultar:
 
@@ -540,8 +658,8 @@ Consultar:
 - 10;
 - 11;
 - 12;
-- 13 se houver monetização;
-- fontes oficiais atuais do Google.
+- 13 quando houver monetização;
+- fontes oficiais atuais.
 
 ## Troubleshooting
 
@@ -550,57 +668,50 @@ Consultar:
 - 00;
 - 15;
 - documento técnico relacionado;
-- estado real do projeto;
-- documentação oficial atualizada;
-- comunidade somente como complemento.
+- estado real;
+- documentação oficial atual.
 
 ---
 
-# 9. Status documental
+# 10. Status documental
 
-Todo documento deverá possuir um status explícito.
+Todo documento pode possuir um status explícito no próprio cabeçalho.
 
 ## PLANEJADO
 
-Foi previsto, mas ainda não existe como regra.
+Previsto, mas ainda não criado ou elaborado.
 
 ## RASCUNHO
 
-Existe conteúdo, porém ainda está em elaboração.
-
-Um rascunho pode orientar discussão, mas não deve ser citado como decisão definitiva.
+Existe conteúdo em elaboração.
 
 ## EM_REVISÃO
 
-Conteúdo suficientemente maduro para avaliação, aguardando aprovação.
+Conteúdo preparado para avaliação, mas ainda sujeito a revisão.
 
 ## ATIVO
 
-Documento aprovado e vigente.
-
-É fonte normativa dentro de seu escopo.
+Documento aprovado e vigente dentro de seu escopo.
 
 ## DESATUALIZADO
 
-Há evidência de que parte de seu conteúdo não representa mais a realidade ou uma fonte externa mudou.
-
-Não utilizar a parte afetada como autoridade até revisão.
+Existe evidência de que parte relevante de seu conteúdo não representa mais a realidade ou decisão atual.
 
 ## SUBSTITUÍDO
 
-Foi trocado por uma versão/decisão posterior.
-
-Permanece apenas para histórico quando isso tiver valor.
+Foi trocado por uma decisão ou documento posterior.
 
 ## ARQUIVADO
 
-Não pertence mais ao fluxo ativo, mas é preservado por histórico.
+Não pertence mais ao fluxo ativo, mas é preservado por valor histórico.
+
+Status não deve ser alterado apenas porque o desenvolvimento avançou normalmente.
 
 ---
 
-# 10. Cabeçalho obrigatório dos documentos
+# 11. Cabeçalho dos documentos
 
-Os documentos futuros devem começar com informações suficientes para evitar ambiguidade.
+Documentos oficiais devem possuir informações suficientes para evitar ambiguidade.
 
 Modelo:
 
@@ -610,7 +721,7 @@ Modelo:
 > Projeto: Gambitol
 > Documento: NN_NOME.md
 > Versão: X.Y
-> Status: RASCUNHO | ATIVO | ...
+> Status: ...
 > Criado em: AAAA-MM-DD
 > Última revisão: AAAA-MM-DD
 > Responsabilidade: ...
@@ -618,119 +729,148 @@ Modelo:
 > Não cobre: ...
 ```
 
-Campos podem ser adaptados quando não fizerem sentido.
+Nem todos os campos são obrigatórios quando não fizerem sentido.
 
-O objetivo não é burocracia. É conseguir responder rapidamente:
+O objetivo é permitir identificar rapidamente:
 
-- este arquivo ainda vale?
-- quando foi revisado?
-- o que ele governa?
-- o que não devo procurar aqui?
-
----
-
-# 11. Regra de versionamento dos documentos
-
-Não usar versionamento como ritual.
-
-Para documentos ativos:
-
-- correção pequena sem mudança de decisão → incremento de revisão textual, sem necessidade de “versão maior”;
-- mudança relevante de conteúdo → atualizar versão;
-- mudança que substitui uma decisão importante → registrar também em `11_DECISOES_TECNICAS.md`;
-- requisito externo alterado → atualizar data de verificação e fonte.
-
-Sugestão de leitura de versão:
-
-- `1.0` = primeira versão aprovada;
-- `1.1` = expansão compatível;
-- `2.0` = reestruturação ou mudança significativa do significado.
-
-Git continuará sendo o histórico detalhado. A versão no cabeçalho é um sinal humano rápido.
+- qual é a função do arquivo;
+- se ele continua vigente;
+- o que ele governa;
+- o que não pertence a ele.
 
 ---
 
-# 12. Quando atualizar documentação
+# 12. Versionamento documental
 
-A documentação deve acompanhar mudanças importantes, não cada alteração cosmética.
+Git é o histórico detalhado da documentação.
 
-## Atualização necessária quando
+A versão no cabeçalho é apenas um indicador humano de mudança relevante.
 
-- uma decisão arquitetural muda;
-- uma nova camada/package estrutural é criada;
-- uma regra de xadrez muda;
-- uma biblioteca relevante é adotada ou removida;
-- um fluxo de Git muda;
-- um requisito de qualidade muda;
-- o MVP muda;
-- uma feature entra ou sai do roadmap;
-- uma exigência da Play Store muda;
-- são adicionadas permissões;
-- coleta de dados é introduzida;
-- monetização é definida;
-- uma estratégia de testes muda;
-- um problema recorrente ganha solução consolidada;
-- o layout aprovado muda de direção;
-- uma informação do documento fica comprovadamente desatualizada.
+Referência:
 
-## Atualização normalmente desnecessária quando
+```text
+1.0 = primeira versão aprovada
+1.1 = expansão ou correção relevante compatível
+2.0 = mudança significativa de significado ou estrutura
+```
 
-- nome de variável local muda;
-- formatação é ajustada;
-- refatoração interna não altera contrato, estrutura ou comportamento relevante;
-- comentário é corrigido;
-- detalhe visual microscópico é ajustado sem impacto de guideline.
+Não aumentar versão por alteração trivial.
 
-Documentação excessivamente sensível a cada linha vira obrigação e depois é abandonada.
+Uma correção puramente textual não precisa gerar ritual de versionamento.
 
 ---
 
-# 13. Protocolo para uma mudança de decisão
+# 13. Documentação não é diário
+
+## DECIDIDO
+
+A documentação oficial não deve acompanhar cada passo normal do desenvolvimento.
+
+Não atualizar documento apenas porque:
+
+- uma classe foi criada;
+- um teste passou;
+- um arquivo foi movido sem alterar regra estrutural;
+- uma branch foi concluída;
+- um commit foi feito;
+- uma PR foi integrada;
+- uma fase avançou normalmente;
+- houve uma pequena refatoração;
+- uma implementação passou a existir conforme o plano já documentado.
+
+O Git registra a evolução normal do projeto.
+
+Documentação deve registrar o que precisa permanecer como referência para decisões futuras.
+
+---
+
+# 14. Quando atualizar documentação
+
+Atualizar quando ocorrer pelo menos uma destas situações:
+
+1. uma decisão normativa mudar;
+2. uma informação descrita como estado vigente ficar objetivamente incorreta;
+3. uma decisão técnica duradoura for tomada;
+4. arquitetura ou dependências estruturais mudarem;
+5. uma regra do xadrez adotada mudar;
+6. uma política ou requisito externo relevante mudar;
+7. uma estratégia de testes, release ou monetização for alterada;
+8. um problema recorrente justificar conhecimento permanente;
+9. o mantenedor solicitar explicitamente a atualização.
+
+Atualizar apenas os documentos afetados.
+
+Não realizar “varredura de modernização” sem necessidade.
+
+---
+
+# 15. Quando normalmente não atualizar
+
+Não é necessário atualizar documentação por:
+
+- nome de variável local;
+- formatação;
+- comentário;
+- teste adicional que apenas cobre regra já documentada;
+- implementação normal prevista no roadmap;
+- commit;
+- merge;
+- branch;
+- pequeno ajuste visual;
+- refatoração interna que não altera contrato ou arquitetura;
+- avanço operacional sem mudança de decisão.
+
+Isso impede que a documentação se torne uma segunda linha do tempo do Git.
+
+---
+
+# 16. Protocolo para mudança de decisão
 
 Quando uma decisão importante precisar mudar:
 
-1. identificar qual decisão atual será afetada;
-2. consultar o documento que a contém;
-3. explicar o motivo da mudança;
-4. avaliar impacto em código, testes, documentação e roadmap;
+1. identificar a decisão vigente;
+2. consultar o documento responsável;
+3. explicar o motivo;
+4. avaliar impacto;
 5. apresentar alternativas quando houver;
 6. obter aprovação;
 7. registrar a nova decisão;
-8. marcar decisão anterior como substituída quando necessário;
+8. preservar o histórico da anterior quando relevante;
 9. atualizar documentos dependentes;
-10. somente então executar mudanças estruturais.
+10. implementar;
+11. validar.
 
-Isso evita “refatoração por impulso”.
+Não alterar primeiro e documentar depois como se sempre tivesse sido planejado.
 
 ---
 
-# 14. Política de decisões técnicas e ADR
+# 17. Política de decisões técnicas e ADR
 
-Nem toda escolha merece um ADR.
+Nem toda escolha merece ADR.
 
-Registrar decisão quando ela afetar de forma relevante:
+Registrar formalmente quando a decisão afetar de forma relevante:
 
 - estrutura;
-- dependências entre partes;
+- direção de dependências;
 - tecnologias centrais;
-- requisitos não funcionais;
 - segurança;
 - persistência;
-- API/contrato;
-- estratégia de build;
+- contratos;
+- build;
 - publicação;
-- processo de desenvolvimento;
 - arquitetura;
-- decisões difíceis de reverter.
+- processo;
+- escolhas difíceis de reverter.
 
 Não criar ADR para:
 
 - nome de variável;
-- ajuste pequeno de margem;
 - correção trivial;
-- refatoração sem consequência arquitetural.
+- margem;
+- formatação;
+- refatoração sem impacto arquitetural.
 
-## Conteúdo mínimo de uma decisão significativa
+Uma decisão significativa pode conter:
 
 ```text
 Título
@@ -738,109 +878,104 @@ Status
 Data
 Contexto
 Problema
-Alternativas relevantes
+Alternativas
 Decisão
 Motivo
-Consequências positivas
-Consequências negativas / trade-offs
+Consequências
+Trade-offs
 Impactos
-Decisão substituída, se houver
-Fontes, quando aplicável
+Decisão substituída
+Fontes
 ```
 
-A AWS destaca que preservar o motivo da decisão reduz rediscussões e ajuda futuros participantes a entender por que o sistema foi construído daquela forma.
+O `11_DECISOES_TECNICAS.md` permanece como registro central enquanto essa estratégia atender ao projeto.
 
 ---
 
-# 15. Protocolo de pesquisa externa
+# 18. Protocolo de pesquisa externa
 
-Quando um documento exigir pesquisa, o objetivo não é “achar uma página que concorde com a solução”. É obter evidência confiável.
+Pesquisa não existe para encontrar uma página que concorde conosco.
 
-## 15.1 Ordem preferencial das fontes
+Ela existe para obter evidência confiável.
 
-### 1. Fonte oficial primária
+Ordem preferencial:
+
+## 1. Fonte oficial primária
 
 Exemplos:
 
 - Android Developers;
-- Google Play Console Help;
-- Gradle Docs;
-- GitHub Docs;
-- documentação oficial Java/OpenJDK;
-- FIDE Handbook para regras de xadrez.
+- Google Play;
+- Gradle;
+- GitHub;
+- Java/OpenJDK;
+- FIDE.
 
-### 2. Especificação ou documentação do mantenedor da tecnologia
+## 2. Documentação do mantenedor da tecnologia
 
 Exemplos:
 
-- repositório oficial;
 - release notes;
 - migration guide;
-- documentação da biblioteca.
+- repositório oficial;
+- issues oficiais.
 
-### 3. Fontes técnicas consolidadas
+## 3. Fontes técnicas consolidadas
 
 Exemplos:
 
 - AWS Prescriptive Guidance;
 - arc42;
-- C4 Model;
+- C4;
 - Diátaxis.
 
-### 4. Comunidade
+## 4. Comunidade
 
 Exemplos:
 
+- GitHub Issues;
 - Stack Overflow;
 - fóruns;
-- GitHub Issues;
 - Reddit;
-- discussões de desenvolvedores;
 - vídeos técnicos.
 
-Comunidade é particularmente útil para:
-
-- bugs reais;
-- comportamento de versões específicas;
-- limitações de hardware;
-- problemas de IDE;
-- dificuldades que documentação oficial não deixa óbvias.
-
-Toda informação crítica encontrada apenas na comunidade deve ser validada antes de virar regra de projeto.
+Informação crítica encontrada apenas na comunidade deve ser validada antes de virar regra.
 
 ---
 
-## 15.2 Fontes por assunto
+# 19. Fontes por assunto
 
-### Android
+## Android
 
 Prioridade:
 
 1. `developer.android.com`;
-2. documentação oficial das bibliotecas AndroidX/Jetpack;
-3. issues oficiais quando necessário.
+2. documentação AndroidX/Jetpack;
+3. issues oficiais.
 
-### Google Play
+## Google Play
 
 Prioridade:
 
-1. `support.google.com/googleplay/android-developer`;
-2. `developer.android.com/google/play`;
+1. documentação oficial Google Play;
+2. Android Developers;
 3. políticas oficiais.
 
-Requisitos da Play Store são mutáveis. Não confiar apenas em conhecimento previamente memorizado.
+Requisitos da Play Store mudam.
 
-### Gradle
+Sempre reverificar perto da publicação.
+
+## Gradle
 
 Prioridade:
 
 1. `docs.gradle.org`;
-2. release notes oficiais;
-3. documentação do Android Gradle Plugin quando o assunto for Android.
+2. release notes;
+3. documentação do Android Gradle Plugin.
 
-A documentação atual do Gradle recomenda usar o Wrapper (`gradlew`/`gradlew.bat`) porque ele fixa a versão do Gradle e padroniza builds entre ambientes.
+Usar o Gradle Wrapper do projeto.
 
-### Git/GitHub
+## Git e GitHub
 
 Prioridade:
 
@@ -848,74 +983,62 @@ Prioridade:
 2. GitHub Docs;
 3. Pro Git quando útil.
 
-### Java
+## Java
 
 Prioridade:
 
-1. documentação/especificações oficiais do Java;
+1. especificações/documentação oficial;
 2. OpenJDK;
-3. documentação do fornecedor do JDK quando o comportamento for específico.
+3. fornecedor do JDK quando o comportamento for específico.
 
-### Regras do xadrez
+## Xadrez
 
 Prioridade:
 
 1. FIDE Laws of Chess;
 2. fontes oficiais complementares;
-3. interpretação específica de software documentada separadamente.
-
-A implementação do jogo não deve depender de “eu sempre joguei assim”.
+3. interpretações específicas de software documentadas separadamente.
 
 ---
 
-# 16. Regras especiais para fatos que envelhecem
+# 20. Fatos que envelhecem
 
-Algumas informações possuem prazo de validade implícito:
+Algumas informações não devem ser tratadas como permanentes:
 
-- target API exigida pela Play Store;
-- políticas de publicação;
-- quantidade/duração de testadores exigidos;
+- target API da Play Store;
+- políticas;
+- requisitos de testes;
 - APIs depreciadas;
-- versões de SDK;
+- SDKs;
 - compatibilidade AGP/Gradle/JDK;
+- Billing;
+- anúncios;
 - política de dados;
-- requisitos de billing;
-- regras de anúncios;
-- limites de plataforma.
+- requisitos de publicação.
 
-Para essas informações, todo documento deve registrar:
+Quando relevante, registrar:
 
 ```text
 Verificado em: AAAA-MM-DD
 Fonte oficial: ...
 ```
 
-Antes de uma ação importante, como publicar o aplicativo, pesquisar novamente.
+Antes de ação crítica, pesquisar novamente.
 
-### Exemplo atual
-
-Em agosto de 2026, a documentação oficial do Android informa que, a partir de 31/08/2026, novos apps e atualizações destinados a celulares devem mirar Android 16 / API 36 ou superior.
-
-Isso é um exemplo perfeito de informação que não deve ser eternizada como se fosse uma constante. O documento de release deverá verificar a regra novamente quando o Gambitol estiver próximo da publicação.
+Datas e requisitos externos documentados servem como evidência histórica da verificação, não como promessa de validade eterna.
 
 ---
 
-# 17. Não confundir “pesquisado” com “decidido”
+# 21. Não confundir pesquisado com decidido
 
-Uma pesquisa pode concluir:
+Uma recomendação externa não vira automaticamente decisão do Gambitol.
 
-> “A recomendação oficial do Android é X.”
-
-Isso não significa automaticamente:
-
-> “O Gambitol adotará X.”
-
-O processo correto é:
+Fluxo:
 
 ```text
-evidência externa
+evidência
 ↓
-análise no contexto do Gambitol
+contexto do Gambitol
 ↓
 alternativas
 ↓
@@ -926,353 +1049,352 @@ registro
 implementação
 ```
 
-Exemplo:
-
-O Android pode recomendar determinada arquitetura moderna. O Gambitol é Java e possui objetivos didáticos específicos. A recomendação deve ser adaptada ao projeto, como o próprio guia de arquitetura Android admite ao tratar suas recomendações como orientação que pode ser adaptada.
+A recomendação de uma plataforma precisa ser adaptada às necessidades, restrições e objetivos do projeto.
 
 ---
 
-# 18. Governança do tutor de IA
+# 22. Governança do tutor de IA
 
 O tutor de IA é uma ferramenta ativa do projeto, mas não é autoridade final.
 
-Antes de orientar uma mudança relevante, deverá:
+Antes de orientar mudança relevante, deve:
 
-1. identificar o objetivo da tarefa atual;
-2. consultar este Guia Mestre;
-3. consultar os documentos especializados relevantes;
+1. identificar o objetivo;
+2. consultar este Guia;
+3. consultar documentos especializados;
 4. verificar decisões já tomadas;
-5. verificar o estado real do código quando a resposta depender dele;
-6. pesquisar fontes oficiais quando a informação puder ter mudado;
-7. separar claramente fato, sugestão e decisão;
-8. não inventar arquivos ou estados;
-9. não renomear elementos aprovados sem autorização;
-10. ensinar o conceito relevante enquanto conduz a implementação.
-
-## Quando houver conflito entre memória e documentação
-
-A documentação ativa deve ser preferida.
-
-## Quando houver conflito entre documentação e conversa atual
-
-A decisão explícita atual do mantenedor prevalece e deve disparar atualização documental.
-
-## Quando houver conflito entre documentação e repositório
-
-Primeiro determinar se:
-
-- o código está violando a regra; ou
-- a documentação ficou desatualizada.
-
-Nunca “corrigir” automaticamente um lado sem diagnóstico.
-
-## Quando o repositório oficial estiver disponível no GitHub
-
-Após o Gambitol ser enviado ao repositório remoto oficial no GitHub e esse repositório estar acessível ao tutor, o GitHub deverá ser usado como referência principal para consultar o estado versionado atual do código.
-
-Antes de orientar uma mudança que dependa da implementação existente, o tutor deverá, quando possível:
-
-- consultar o repositório oficial do Gambitol;
-- verificar a branch relevante;
-- ler os arquivos atuais envolvidos na tarefa;
-- considerar o histórico versionado quando ele for necessário para entender a evolução do código;
-- atualizar seu entendimento do projeto a partir do repositório antes de depender de memória de conversas anteriores;
-- não pedir novamente ao mantenedor conteúdo que possa ser consultado diretamente no repositório acessível.
-
-Essa regra não altera a precedência documental:
-
-- a documentação ativa continua sendo a fonte normativa para decisões, arquitetura, padrões e regras do projeto;
-- o repositório no GitHub representa o estado versionado da implementação;
-- alterações locais ainda não commitadas ou não enviadas ao remoto não podem ser inferidas a partir do GitHub e devem ser verificadas no ambiente local quando forem relevantes.
-
-O objetivo é permitir que o tutor acompanhe a evolução real do Gambitol pelo código versionado, reduzindo perda de contexto e evitando que o mantenedor precise reapresentar manualmente arquivos que já estejam disponíveis no repositório oficial.
+5. verificar estado real quando necessário;
+6. pesquisar fontes atuais quando o fato puder ter mudado;
+7. separar fato, proposta e decisão;
+8. não inventar arquivos;
+9. não presumir resultados;
+10. não renomear elementos aprovados;
+11. ensinar o conceito relevante durante a implementação.
 
 ---
 
-# 19. Regra de não invenção
+## 22.1 GitHub como referência versionada atual
 
-O Gambitol adota uma regra rígida:
-
-> Nada que dependa do estado atual do projeto deve ser presumido quando puder ser verificado.
-
-Antes de sugerir alteração em um arquivo desconhecido, obter seu conteúdo.
-
-Antes de afirmar branch atual, usar Git.
-
-Antes de afirmar que compila, rodar build.
-
-Antes de afirmar que teste passa, rodar teste.
-
-Antes de afirmar versão configurada, ler configuração.
-
-Antes de afirmar requisito atual da Play Store, consultar fonte atualizada.
-
-Antes de afirmar regra oficial do xadrez, consultar a referência de regras quando houver dúvida.
-
----
-
-# 20. README versus documentação interna
-
-O `README.md` da raiz deve permanecer relativamente enxuto.
-
-Ele deve responder principalmente:
-
-- o que é Gambitol;
-- objetivo;
-- stack principal;
-- estado geral;
-- como executar quando isso estiver definido;
-- onde está a documentação.
-
-O README não deve virar:
-
-- manual completo de arquitetura;
-- catálogo de todas as regras do xadrez;
-- log de decisão;
-- tutorial de Android;
-- changelog de cada feature.
-
-Quando a pasta de documentação estiver integrada ao repositório, o README poderá apontar para:
+O repositório oficial:
 
 ```text
-docs/00_GUIA_MESTRE.md
+RAIONORIO/gambitol
 ```
 
-ou para a estrutura que for aprovada posteriormente.
+é a principal referência para o estado versionado atual do projeto.
 
-A localização definitiva dos documentos no repositório deve ser decidida antes da integração. Este ZIP é uma fonte documental independente e não pressupõe que a pasta já exista no código.
+Quando acessível ao tutor, ele deve consultar diretamente o repositório antes de pedir ao mantenedor conteúdo que já esteja disponível nele.
 
----
+Isso inclui, quando necessário:
 
-# 21. Estrutura documental não significa estrutura de código
+- arquivos;
+- estrutura;
+- commits;
+- branches;
+- pull requests;
+- documentação em `docs/`.
 
-A lista de documentos já está definida.
+O GitHub não revela alterações locais ainda não commitadas ou não enviadas.
 
-A estrutura de packages do aplicativo NÃO está.
-
-O fato de existirem documentos sobre:
-
-- arquitetura;
-- motor;
-- testes;
-- UI;
-
-não autoriza criar packages arbitrários com esses mesmos nomes.
-
-A estrutura real do código será definida em `04_ESTRUTURA_DO_PROJETO.md` após análise do projeto Android criado e das necessidades reais.
+Quando o estado local for relevante, usar evidência do ambiente local.
 
 ---
 
-# 22. Uso futuro de diagramas
+## 22.2 Documentação e GitHub não competem
 
-Diagramas deverão possuir:
+A relação é:
+
+```text
+DOCUMENTAÇÃO VIGENTE
+→ define regras e decisões
+
+REPOSITÓRIO
+→ mostra estado versionado
+
+WORKING TREE LOCAL
+→ pode mostrar trabalho ainda não publicado
+
+BUILD / TESTES / LOGS
+→ provam comportamento observado
+```
+
+Nenhum deles deve ser usado fora de sua responsabilidade.
+
+---
+
+## 22.3 Conflito entre conversa, documentação e repositório
+
+Se houver conflito:
+
+### Conversa atual versus documento antigo
+
+Decisão explícita atual do mantenedor prevalece.
+
+Depois, avaliar atualização do documento.
+
+### Documento versus código
+
+Determinar primeiro se:
+
+- o código viola a regra; ou
+- o documento está desatualizado.
+
+### Memória versus GitHub
+
+Preferir evidência atual do repositório.
+
+### GitHub versus estado local
+
+Se houver trabalho local não publicado, usar o terminal para verificar.
+
+---
+
+# 23. Regra de não invenção
+
+O Gambitol adota:
+
+> **Nada que dependa do estado atual do projeto deve ser presumido quando puder ser verificado.**
+
+Antes de afirmar:
+
+- branch;
+- arquivo;
+- versão;
+- configuração;
+- build;
+- teste;
+- commit;
+- push;
+- merge;
+- requisito externo;
+
+obter evidência adequada.
+
+Diferenciar sempre:
+
+```text
+esperado
+```
+
+de:
+
+```text
+confirmado
+```
+
+---
+
+# 24. Estrutura documental não define estrutura de código
+
+Os nomes dos documentos não autorizam criar packages equivalentes.
+
+A estrutura real do código pertence ao:
+
+```text
+04_ESTRUTURA_DO_PROJETO.md
+```
+
+e às decisões técnicas vigentes.
+
+Documentação é organização de conhecimento.
+
+Packages são organização de código.
+
+Misturar os dois porque os nomes parecem bonitos é uma forma surpreendentemente eficiente de fabricar arquitetura sem necessidade.
+
+---
+
+# 25. Uso de diagramas
+
+Diagramas devem possuir quando necessário:
 
 - título;
 - objetivo;
 - escopo;
-- legenda quando necessária;
-- nível de abstração conhecido;
-- correspondência razoável com o código atual.
+- legenda;
+- nível de abstração;
+- correspondência razoável com o sistema.
 
-Preferência inicial:
+Preferir:
 
-1. contexto do sistema;
-2. visão de alto nível da aplicação;
-3. componentes somente onde ajudam.
+1. contexto;
+2. visão de alto nível;
+3. componentes quando a complexidade justificar.
 
-O C4 recomenda usar apenas os níveis que acrescentam valor. Para um aplicativo mobile isolado, não há mérito em criar dez diagramas simplesmente porque existem dez ferramentas capazes de desenhá-los.
+Não criar dez diagramas porque a ferramenta oferece dez tipos.
 
 ---
 
-# 23. Qualidade documental
+# 26. Qualidade documental
 
-Uma documentação do Gambitol é considerada de boa qualidade quando:
+Uma documentação do Gambitol é considerada boa quando:
 
-- responde claramente ao seu propósito;
+- responde ao próprio propósito;
 - não contradiz decisões vigentes;
 - distingue fato de proposta;
-- não inventa estado de implementação;
-- registra fonte para fatos externos importantes;
-- registra data de verificação quando o fato pode envelhecer;
-- evita duplicação desnecessária;
+- não inventa implementação;
+- registra fontes importantes;
+- registra data para fatos temporais;
+- evita duplicação;
 - usa termos consistentes;
-- possui exemplos compatíveis com o código real;
-- é suficientemente detalhada para orientar o projeto;
-- continua legível por um humano;
-- ajuda o tutor a não perder contexto;
-- explica o “por quê” quando isso é relevante;
-- não cria burocracia maior que o problema resolvido.
+- continua legível;
+- preserva contexto;
+- ajuda ensino e manutenção;
+- não exige atualização por progresso normal;
+- não cria burocracia maior do que o problema resolvido.
 
 ---
 
-# 24. Checklist antes de considerar um documento ATIVO
+# 27. Checklist para considerar um documento vigente
 
-- [ ] O propósito do documento está explícito.
-- [ ] O que ele não cobre está claro quando necessário.
-- [ ] O conteúdo corresponde ao estado e às decisões atuais.
-- [ ] Propostas estão marcadas como propostas.
-- [ ] Decisões estão claramente identificadas.
-- [ ] Caminhos de arquivos citados foram verificados.
-- [ ] Versões citadas foram verificadas.
-- [ ] Requisitos externos têm fonte adequada.
-- [ ] Fatos mutáveis possuem data de verificação.
-- [ ] Não há regra duplicada conflitante em outro documento.
-- [ ] O documento não invade desnecessariamente a responsabilidade de outro.
-- [ ] Trade-offs importantes estão registrados.
-- [ ] O mantenedor aprovou o documento.
-
----
-
-# 25. Checklist antes de uma implementação estrutural
-
-Antes de criar uma feature que altere estrutura:
-
-- [ ] Qual é o objetivo?
-- [ ] Está dentro do escopo atual?
-- [ ] Existe decisão já tomada sobre isso?
-- [ ] Quais documentos são relevantes?
-- [ ] Conhecemos o estado atual dos arquivos?
-- [ ] A arquitetura permite essa dependência?
-- [ ] Precisamos pesquisar uma API ou requisito atual?
-- [ ] Como vamos testar?
-- [ ] A mudança merece uma decisão técnica?
-- [ ] Existe um bom ponto de validação antes de continuar?
-
-Esse checklist não precisa aparecer antes de cada método. Ele é para mudanças significativas.
+- [ ] propósito explícito;
+- [ ] responsabilidade clara;
+- [ ] conteúdo coerente com decisões atuais;
+- [ ] propostas identificadas;
+- [ ] decisões identificadas;
+- [ ] caminhos verificados quando relevantes;
+- [ ] versões verificadas quando relevantes;
+- [ ] fontes externas adequadas;
+- [ ] fatos mutáveis datados quando necessário;
+- [ ] ausência de conflito conhecido;
+- [ ] ausência de duplicação desnecessária;
+- [ ] trade-offs relevantes registrados;
+- [ ] aprovação do mantenedor quando exigida.
 
 ---
 
-# 26. Exemplos de resolução de conflito
+# 28. Checklist antes de implementação estrutural
 
-## Exemplo A — documentação diz Java 21, build usa outro JDK
+Antes de mudança significativa:
 
-Pergunta:
+- [ ] qual é o objetivo?
+- [ ] está no escopo?
+- [ ] existe decisão anterior?
+- [ ] quais documentos se aplicam?
+- [ ] conhecemos o estado real?
+- [ ] arquitetura permite?
+- [ ] existe requisito externo relevante?
+- [ ] como testar?
+- [ ] merece decisão técnica?
+- [ ] qual será o ponto de validação?
 
-> O documento técnico está errado ou o ambiente está errado?
+Esse checklist não precisa aparecer para alterações triviais.
 
-Ação:
+---
+
+# 29. Exemplos de resolução de conflito
+
+## Exemplo A — documentação e JDK divergem
 
 1. verificar configuração real;
-2. verificar compatibilidade necessária;
-3. consultar decisão vigente;
-4. decidir qual lado corrigir;
-5. atualizar documentação se necessário.
-
-Não alterar JDK por reflexo.
+2. consultar decisão vigente;
+3. verificar compatibilidade;
+4. identificar qual lado está incorreto;
+5. corrigir apenas depois do diagnóstico.
 
 ---
 
-## Exemplo B — regra do motor contradiz a FIDE
+## Exemplo B — regra do motor diverge da FIDE
 
-Se `05_REGRAS_DO_MOTOR_DE_XADREZ.md` divergir de regra oficial:
-
-1. verificar se a divergência é intencional;
-2. se não for, corrigir regra e testes;
-3. se for uma adaptação deliberada do jogo, documentá-la explicitamente.
+1. confirmar a regra oficial;
+2. verificar se existe adaptação deliberada;
+3. corrigir regra/testes quando necessário;
+4. documentar qualquer divergência intencional.
 
 ---
 
-## Exemplo C — arquitetura proíbe Android no motor, mas uma classe usa `Context`
+## Exemplo C — engine importa Android
 
-Não assumir que “a arquitetura mudou”.
+Não concluir automaticamente que a arquitetura mudou.
 
 Investigar:
 
-1. por que a dependência entrou;
-2. se pode ser removida;
-3. se existe necessidade real;
-4. se a arquitetura deve mudar.
-
-A decisão vem antes da normalização do desvio.
+1. por que entrou;
+2. se viola decisão vigente;
+3. se pode ser removido;
+4. se existe motivo real para reconsiderar arquitetura.
 
 ---
 
 ## Exemplo D — requisito da Play Store mudou
 
-Não manter regra antiga apenas porque está documentada.
-
-1. confirmar em fonte oficial;
-2. marcar documento como desatualizado se necessário;
-3. atualizar;
-4. avaliar impacto no build;
-5. registrar mudança relevante.
+1. confirmar fonte oficial;
+2. avaliar impacto;
+3. atualizar documento aplicável;
+4. ajustar implementação quando necessário;
+5. registrar decisão duradoura se houver.
 
 ---
 
-# 27. Definição de “fonte de verdade do projeto”
+# 30. Definição de fonte de verdade
 
-A expressão “fonte de verdade” não significa que qualquer texto dentro do ZIP é eternamente correto.
+A fonte de verdade do Gambitol não é um único arquivo mágico.
 
-Significa que existe um processo claro para determinar qual informação é válida.
-
-A fonte de verdade do Gambitol é formada pelo conjunto:
+Ela é formada por:
 
 ```text
-decisões explícitas do mantenedor
+decisões explícitas atuais
 +
-documentação ativa
+documentação vigente
 +
 registro de decisões
 +
 estado real do repositório
 +
+estado local quando relevante
++
 resultados de build/teste
 +
-fontes externas oficiais para fatos controlados por terceiros
+fontes externas oficiais
 ```
 
-O `00_GUIA_MESTRE.md` define como essas partes se relacionam.
+Este Guia define como essas fontes se relacionam.
 
 ---
 
-# 28. Relação entre documentação e aprendizado
+# 31. Documentação e aprendizado
 
-Como o Gambitol também é projeto educacional, a documentação possui uma segunda função: permitir revisitar o raciocínio.
+Como o Gambitol também é um projeto educacional, a documentação deve preservar raciocínio suficiente para permitir entender:
 
-Por isso, documentos técnicos não devem conter apenas ordens como:
+- o que foi escolhido;
+- por que foi escolhido;
+- quais alternativas existiam;
+- quais trade-offs importaram;
+- como validar.
+
+Evitar documentos compostos apenas por:
 
 > “Use X.”
 
-Quando a decisão for importante, registrar:
+Quando a decisão for relevante, preferir:
 
-> “Usamos X porque resolve Y, considerando Z.”
+> “Usamos X porque resolve Y dentro da restrição Z.”
 
-Esse padrão ajuda a:
-
-- revisar conhecimento;
-- produzir conteúdo;
-- responder entrevistas;
-- explicar arquitetura;
-- defender escolhas técnicas;
-- reconhecer quando uma antiga decisão deixou de fazer sentido.
+Isso ajuda aprendizado, manutenção, entrevistas e portfólio.
 
 ---
 
-# 29. Relação entre documentação e conteúdo público
+# 32. Documentação e conteúdo público
 
-Nem toda informação interna deve virar conteúdo.
+O documento:
 
-O documento `14_CONTEUDO_E_PORTFOLIO.md` poderá aproveitar:
+```text
+14_CONTEUDO_E_PORTFOLIO.md
+```
 
-- erros interessantes;
-- decisões arquiteturais;
-- testes;
-- conceitos Java;
-- conceitos Android;
-- refatorações;
-- antes/depois;
-- publicação.
+governa como transformar o projeto em conteúdo profissional.
 
-Porém:
+Regras gerais:
 
-- segredos nunca entram em conteúdo;
-- chaves, senhas e credenciais nunca devem entrar nos documentos;
-- informações privadas do Play Console não devem ser copiadas sem necessidade;
-- materiais públicos devem refletir o estado real, não uma feature planejada como se estivesse pronta.
+- conteúdo deve refletir estado real;
+- feature planejada não deve ser apresentada como pronta;
+- segredo não entra em material público;
+- evidência vale mais que claim;
+- projeto não deve ser alterado apenas para produzir postagem.
 
 ---
 
-# 30. Segurança documental
+# 33. Segurança documental
 
 Nunca registrar em Markdown ou Git:
 
@@ -1280,143 +1402,155 @@ Nunca registrar em Markdown ou Git:
 - token;
 - chave privada;
 - keystore password;
-- credencial de Play Console;
 - segredo de API;
-- arquivo de serviço contendo segredo, salvo quando uma plataforma exigir e houver estratégia segura;
-- dados pessoais desnecessários.
+- credencial;
+- informação sensível desnecessária.
 
-Se uma configuração exigir segredo, documentar:
+Quando configuração exigir segredo, documentar:
 
-- nome da variável;
-- finalidade;
-- local seguro esperado;
-
-mas não seu valor.
-
----
-
-# 31. Gradle Wrapper como padrão de execução
-
-O projeto já contém arquivos do Gradle Wrapper.
-
-A documentação oficial do Gradle recomenda executar builds por meio do Wrapper porque ele usa a versão de Gradle declarada pelo projeto e padroniza o comportamento entre ambientes.
-
-No Git Bash, o padrão será preferencialmente:
-
-```bash
-./gradlew <tarefa>
+```text
+nome
+finalidade
+local esperado
 ```
 
-em vez de depender de um Gradle instalado globalmente.
-
-Isso será detalhado nos documentos técnicos, mas é registrado aqui como princípio de reprodutibilidade.
-
-Os arquivos do Wrapper fazem parte do projeto e, segundo a documentação oficial do Gradle, devem ser versionados.
+mas não o valor.
 
 ---
 
-# 32. Princípios arquiteturais Android que influenciarão as documentações futuras
+# 34. Gradle Wrapper
 
-O guia oficial de arquitetura Android destaca:
+## DECIDIDO
+
+Usar o Gradle Wrapper do projeto.
+
+No Git Bash:
+
+```bash
+./gradlew <task>
+```
+
+Não depender de Gradle global para o fluxo normal.
+
+Os arquivos necessários do Wrapper fazem parte do projeto versionado.
+
+---
+
+# 35. Princípios arquiteturais gerais
+
+O Gambitol adota como princípios:
 
 - separação de responsabilidades;
-- limites claros entre partes do aplicativo;
-- evitar concentrar lógica na `Activity`;
-- modelar dados e estado fora de componentes de vida curta;
-- reduzir dependências desnecessárias do framework Android;
+- limites claros;
+- regras fora da `Activity`;
+- motor independente de Android;
 - testabilidade;
-- fonte única de verdade;
-- camadas bem definidas quando apropriado.
+- clareza;
+- dependências justificadas;
+- estado controlado;
+- arquitetura proporcional ao problema.
 
-Esses princípios são particularmente compatíveis com a decisão já tomada de manter o motor do Gambitol majoritariamente em Java puro e separado da UI Android.
+A implementação concreta pertence aos documentos:
 
-Isso NÃO significa que a arquitetura final já está definida.
-
-A forma concreta será desenhada em:
-
-- `03_ARQUITETURA_DO_GAMBITOL.md`;
-- `04_ESTRUTURA_DO_PROJETO.md`;
-- `06_PADROES_JAVA_E_ANDROID.md`.
+```text
+03_ARQUITETURA_DO_GAMBITOL.md
+04_ESTRUTURA_DO_PROJETO.md
+06_PADROES_JAVA_E_ANDROID.md
+11_DECISOES_TECNICAS.md
+```
 
 ---
 
-# 33. Política contra overengineering documental
-
-Documentação também pode ser overengineering.
+# 36. Política contra overengineering documental
 
 Sinais de excesso:
 
-- mesmo texto copiado em vários arquivos;
-- diagramas que ninguém consulta;
-- decisões registradas para trivialidades;
-- documentos enormes que nunca são atualizados;
-- processo tão pesado que impede desenvolvimento;
-- regras criadas antes de existir problema;
-- estrutura documental criada apenas porque “projetos profissionais têm”.
+- mesmo texto em vários arquivos;
+- status duplicado em catálogos;
+- árvores atualizadas a cada nova classe;
+- changelog escondido em documento técnico;
+- diagramas inúteis;
+- decisão formal para trivialidade;
+- documentação que custa mais que o problema.
 
 Regra:
 
-> Documentar o suficiente para preservar contexto, ensinar, orientar e permitir manutenção. Não documentar para encenar complexidade.
+> **Documentar o suficiente para preservar contexto, decisão e conhecimento. Não documentar para encenar complexidade.**
 
 ---
 
-# 34. Política contra subdocumentação
+# 37. Política contra subdocumentação
 
-O extremo oposto também é proibido.
-
-Sinais:
+Também evitar:
 
 - “depois a gente lembra”;
-- arquitetura só existe na cabeça;
-- mudança relevante sem motivo registrado;
-- regra de xadrez implementada sem especificação;
-- feature considerada pronta sem critérios;
-- dependência adicionada sem saber por quê;
-- Play Store tratada somente na semana de publicar.
+- arquitetura apenas na memória;
+- regra de xadrez sem especificação;
+- decisão importante sem motivo;
+- dependência sem justificativa;
+- requisito de release verificado tarde demais;
+- alteração normativa sem atualização correspondente.
 
-O Gambitol precisa deixar rastros das decisões que importam.
-
----
-
-# 35. Gatilhos obrigatórios de revisão deste Guia Mestre
-
-Revisar este documento quando:
-
-- a estrutura de documentação mudar;
-- um documento for adicionado/removido;
-- a regra de precedência mostrar falha prática;
-- a estratégia de ADR mudar;
-- a documentação passar a ser mantida em outro local;
-- novas pessoas passarem a contribuir;
-- o uso de IA no projeto mudar de forma relevante;
-- houver repetição de conflitos que este guia não consiga resolver.
-
-Não revisar apenas porque passou um mês.
+O Gambitol precisa registrar o que realmente importa.
 
 ---
 
-# 36. Próximos documentos prioritários
+# 38. Gatilhos de revisão deste Guia Mestre
 
-Após aprovação deste guia, a sequência planejada permanece:
+Este arquivo só precisa ser revisado quando sua própria governança mudar.
 
-1. `01_VISAO_E_OBJETIVOS.md`;
-2. `02_METODO_DE_ENSINO.md`;
-3. `03_ARQUITETURA_DO_GAMBITOL.md`;
-4. `04_ESTRUTURA_DO_PROJETO.md`;
-5. `05_REGRAS_DO_MOTOR_DE_XADREZ.md`;
-6. `06_PADROES_JAVA_E_ANDROID.md`;
-7. `07_GIT_WORKFLOW.md`;
-8. `08_TESTES_E_QUALIDADE.md`;
-9. `09_UI_UX_GAMBITOL.md`;
-10. `10_ROADMAP_E_ESCOPO.md`;
-11. `11_DECISOES_TECNICAS.md`;
-12. documentos de release, monetização, conteúdo e troubleshooting.
+Exemplos:
 
-A ordem pode ser adaptada quando o desenvolvimento exigir, desde que a alteração seja consciente.
+- documentos oficiais forem adicionados ou removidos;
+- localização oficial da documentação mudar;
+- regra de precedência mudar;
+- estratégia de ADR mudar;
+- processo documental mudar;
+- papel do tutor de IA mudar significativamente;
+- forma de consultar o repositório mudar;
+- surgir falha recorrente que este Guia não consiga resolver.
+
+Não revisar porque:
+
+- nova feature foi implementada;
+- fase terminou;
+- PR foi integrada;
+- branch foi removida;
+- classe foi criada;
+- teste passou;
+- um mês se passou.
 
 ---
 
-# 37. Resumo operacional para o tutor
+# 39. Manutenção da documentação oficial
+
+Os documentos `00–15` já compõem a base documental oficial do projeto.
+
+Não existe necessidade de recriar essa série durante o desenvolvimento normal.
+
+Daqui em diante, a manutenção deve ser pontual:
+
+```text
+mudou decisão relevante?
+→ atualizar documento afetado
+
+informação vigente ficou falsa?
+→ corrigir documento afetado
+
+nova decisão duradoura?
+→ registrar onde pertence
+
+avanço normal do código?
+→ Git já registra
+```
+
+O objetivo é manter documentação estável e confiável.
+
+Não buscar “atualizar todos os documentos” periodicamente apenas porque o projeto avançou.
+
+---
+
+# 40. Resumo operacional para o tutor
 
 Antes de orientar:
 
@@ -1425,15 +1559,17 @@ QUAL É A TAREFA?
         ↓
 CONSULTAR 00
         ↓
-CONSULTAR DOCUMENTOS DO TEMA
+CONSULTAR DOCUMENTO DO TEMA
         ↓
-HÁ DECISÃO ANTERIOR?
+HÁ DECISÃO VIGENTE?
         ↓
-PRECISO VER O CÓDIGO REAL?
+PRECISO VER O ESTADO REAL?
         ↓
-A INFORMAÇÃO EXTERNA PODE TER MUDADO?
+CONSULTAR GITHUB / GIT / ARQUIVOS
         ↓
-PESQUISAR FONTE OFICIAL SE NECESSÁRIO
+FATO EXTERNO PODE TER MUDADO?
+        ↓
+PESQUISAR FONTE OFICIAL
         ↓
 SEPARAR FATO / PROPOSTA / DECISÃO
         ↓
@@ -1446,225 +1582,171 @@ VALIDAR
 CONTINUAR
 ```
 
-Esse é o fluxo central do projeto.
-
 ---
 
-# 38. Resumo operacional para o mantenedor
+# 41. Resumo operacional para o mantenedor
 
-Quando surgir dúvida sobre “onde isso deveria estar?”:
+Quando surgir dúvida sobre onde uma informação pertence:
 
-- propósito do produto → 01;
-- como ensinar → 02;
+- propósito → 01;
+- ensino → 02;
 - arquitetura → 03;
-- onde o código fica → 04;
-- como o xadrez funciona → 05;
-- como escrever Java/Android → 06;
-- como trabalhar com Git → 07;
-- como testar → 08;
-- como deve parecer/comportar-se → 09;
-- o que entra agora/depois → 10;
-- por que uma decisão foi tomada → 11;
-- como publicar → 12;
-- como monetizar → 13;
-- como transformar em conteúdo → 14;
-- como resolver um problema já investigado → 15.
+- estrutura → 04;
+- xadrez → 05;
+- Java/Android → 06;
+- Git → 07;
+- testes → 08;
+- UI/UX → 09;
+- roadmap → 10;
+- decisões → 11;
+- publicação → 12;
+- monetização → 13;
+- conteúdo → 14;
+- troubleshooting → 15.
 
-Se nenhuma categoria servir, avaliar se:
+Se nenhuma categoria servir:
 
-1. a informação realmente precisa ser documentada;
-2. pertence a uma seção existente;
-3. justifica novo documento.
-
-Não criar novo arquivo como primeira reação.
+1. verificar se precisa mesmo ser documentado;
+2. procurar seção existente;
+3. só então avaliar novo documento.
 
 ---
 
-# 39. Fontes pesquisadas para esta versão
+# 42. Fontes conceituais desta documentação
 
-As fontes abaixo foram usadas como base conceitual. O texto deste documento é uma síntese aplicada especificamente ao Gambitol.
+As fontes abaixo sustentam os princípios gerais utilizados na criação desta base documental.
 
-## Android Developers — arquitetura
+## Android Developers
 
 **Guide to app architecture**  
 https://developer.android.com/topic/architecture
 
-Usado como base para:
-
-- separação de responsabilidades;
-- limites de componentes;
-- testabilidade;
-- single source of truth;
-- evitar lógica concentrada em Activity;
-- redução de acoplamento a classes Android.
-
 **Recommendations for Android architecture**  
 https://developer.android.com/topic/architecture/recommendations
 
-Usado para:
+Aplicadas a:
 
-- tratar recomendações como orientações adaptáveis;
-- camadas claramente definidas;
-- preocupação com testabilidade e manutenção.
+- separação de responsabilidades;
+- limites;
+- testabilidade;
+- estado;
+- redução de acoplamento.
 
 ---
 
-## GitHub Docs — documentação de repositório
+## GitHub Docs
 
-**About the repository README file**  
+**About READMEs**  
 https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes
 
 **Best practices for repositories**  
 https://docs.github.com/en/repositories/creating-and-managing-repositories/best-practices-for-repositories
 
-**Setting guidelines for repository contributors**  
-https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors
+Aplicadas a:
 
-Usados para:
-
-- README como porta de entrada;
-- documentação navegável;
-- expectativas explícitas para quem trabalha no repositório.
+- README como entrada;
+- organização;
+- documentação navegável.
 
 ---
 
-## AWS Prescriptive Guidance — decisões arquiteturais
+## AWS Prescriptive Guidance
 
-**Using architectural decision records to streamline decision-making during development**  
+**Architectural Decision Records**  
 https://docs.aws.amazon.com/prescriptive-guidance/latest/architectural-decision-records/introduction.html
 
-**Architectural decision record process**  
-https://docs.aws.amazon.com/prescriptive-guidance/latest/architectural-decision-records/adr-process.html
+Aplicada a:
 
-**Best practices for using architectural decision records**  
-https://docs.aws.amazon.com/prescriptive-guidance/latest/architectural-decision-records/best-practices.html
-
-Usados para:
-
-- registrar contexto, decisão e consequências;
-- preservar histórico;
-- evitar rediscussão recorrente;
-- distinguir decisões arquiteturalmente relevantes de escolhas triviais.
+- contexto;
+- decisão;
+- consequências;
+- preservação do motivo.
 
 ---
 
 ## Diátaxis
 
-**Diátaxis framework**  
 https://diataxis.fr/
 
-**Start here — Diátaxis in five minutes**  
-https://diataxis.fr/start-here/
+Aplicado à distinção entre:
 
-**How to use Diátaxis**  
-https://diataxis.fr/how-to-use-diataxis/
-
-Usados para:
-
-- distinguir tutorial, how-to, referência e explicação;
-- organizar documentação conforme necessidade do leitor;
-- evitar criação artificial de estruturas vazias.
+- tutorial;
+- how-to;
+- referência;
+- explicação.
 
 ---
 
 ## arc42
 
-**arc42 Template Overview**  
-https://arc42.org/overview/
+https://arc42.org/
 
-**arc42 Documentation — Introduction and Goals**  
-https://docs.arc42.org/section-1/
-
-**arc42 Documentation — Constraints**  
-https://docs.arc42.org/section-2/
-
-Usados para:
+Aplicado a:
 
 - objetivos;
-- requisitos de qualidade;
 - restrições;
 - contexto;
 - decisões;
-- visão estrutural da arquitetura.
+- arquitetura compreensível.
 
 ---
 
 ## C4 Model
 
-**C4 model**  
 https://c4model.com/
 
-**System context diagram**  
-https://c4model.com/diagrams/system-context
-
-**Diagrams**  
-https://c4model.com/diagrams
-
-Usados para:
-
-- documentação arquitetural em níveis de zoom;
-- começar pela visão geral;
-- usar apenas diagramas que tragam valor.
+Aplicado ao uso progressivo e intencional de diagramas.
 
 ---
 
 ## Gradle
 
-**Gradle Wrapper Basics**  
-https://docs.gradle.org/current/userguide/gradle_wrapper_basics.html
-
 **Gradle Wrapper**  
-https://docs.gradle.org/current/userguide/wrapper_plugin.html
+https://docs.gradle.org/current/userguide/gradle_wrapper.html
 
-Usados para:
-
-- Wrapper como forma recomendada de executar builds;
-- padronização da versão;
-- versionamento dos arquivos do Wrapper.
+Aplicado à execução reproduzível do build.
 
 ---
 
 ## Google Play
 
-**Meet Google Play's target API level requirement**  
-https://developer.android.com/google/play/requirements/target-sdk
+https://developer.android.com/google/play
 
-**App testing requirements for new personal developer accounts**  
-https://support.google.com/googleplay/android-developer/answer/14151465
-
-Usados como exemplos de requisitos externos que mudam com o tempo e precisam de data de verificação.
+Aplicado ao princípio de reverificar requisitos externos antes de publicação.
 
 ---
 
 ## FIDE
 
 **FIDE Laws of Chess**  
-https://handbook.fide.com/chapter/E012023
+https://handbook.fide.com/
 
-Usado para estabelecer a FIDE como fonte primária para a futura documentação das regras do motor de xadrez.
+Aplicado à definição da autoridade primária para regras oficiais de xadrez.
 
 ---
 
-# 40. Conclusão
+# 43. Conclusão
 
-O Gambitol deve possuir documentação suficiente para que, meses depois, seja possível responder:
+O Gambitol deve possuir documentação suficiente para que decisões importantes não dependam de memória ou de centenas de mensagens antigas.
 
-- por que usamos Java?
-- por que o motor está separado do Android?
-- qual regra de xadrez foi adotada?
+A documentação deve permitir responder:
+
 - qual decisão está vigente?
-- qual classe deve ficar em qual camada?
-- o que pertence ao MVP?
-- qual requisito da Play Store foi verificado?
-- por que uma tecnologia foi escolhida?
-- qual erro já enfrentamos?
-- como o projeto deve ser ensinado?
-- como saber se uma informação ainda vale?
+- onde essa regra pertence?
+- como o motor se relaciona com Android?
+- qual fonte consultar?
+- como verificar o estado real?
+- quando uma atualização documental é necessária?
+- quando não é?
+- como impedir que sugestão vire requisito?
+- como preservar o motivo das decisões?
 
-Se essas respostas dependerem de memória ou de procurar centenas de mensagens antigas, a documentação falhou.
+O objetivo não é manter documentos constantemente ocupados descrevendo cada movimento do desenvolvimento.
 
-O objetivo deste sistema é simples:
+O objetivo é manter uma base estável capaz de orientar o projeto por muito tempo.
 
-> **preservar contexto, decisões, aprendizado e direção sem transformar o Gambitol em uma burocracia de Markdown.**
+> **Documentação deve preservar contexto e decisões, não competir com o Git para ver quem consegue registrar mais acontecimentos.**
 
-Este documento é o mapa. Os demais documentos serão as fontes especializadas.
+Este documento é o mapa.
+
+Os demais documentos são as fontes especializadas.
