@@ -1,3 +1,41 @@
 <resources>
     <string name="app_name">Gambitol</string>
+    <string name="side_white">Brancas</string>
+    <string name="side_black">Pretas</string>
+    <string name="white_player_turn">● Brancas — jogando</string>
+    <string name="white_player_waiting">Brancas</string>
+    <string name="black_player_turn">● Pretas — jogando</string>
+    <string name="black_player_waiting">Pretas</string>
+    <string name="status_initial">Vez das brancas</string>
+    <string name="status_turn">Vez das %1$s</string>
+    <string name="status_check">Xeque — vez das %1$s</string>
+    <string name="status_checkmate">Xeque-mate — %1$s vencem</string>
+    <string name="status_stalemate">Empate por afogamento</string>
+    <string name="status_dead_position">Empate por posição morta</string>
+    <string name="status_fivefold">Empate por repetição de posição</string>
+    <string name="status_seventy_five_move">Empate pela regra dos 75 lances</string>
+    <string name="status_claimed_threefold">Empate reclamado por tripla repetição</string>
+    <string name="status_claimed_fifty_move">Empate reclamado pela regra dos 50 lances</string>
+    <string name="restart">Reiniciar</string>
+    <string name="restart_title">Reiniciar partida?</string>
+    <string name="restart_message">A posição atual será descartada e uma nova partida começará.</string>
+    <string name="cancel">Cancelar</string>
+    <string name="claim_draw">Reclamar empate</string>
+    <string name="claim_threefold">Reclamar empate por repetição</string>
+    <string name="claim_fifty_move">Reclamar empate por 50 lances</string>
+    <string name="promotion_title">Escolha a promoção</string>
+    <string name="piece_king">rei</string>
+    <string name="piece_queen">dama</string>
+    <string name="piece_rook">torre</string>
+    <string name="piece_bishop">bispo</string>
+    <string name="piece_knight">cavalo</string>
+    <string name="piece_pawn">peão</string>
+    <string name="square_empty">%1$s, vazia</string>
+    <string name="square_piece">%1$s, %3$s das %2$s</string>
+    <string name="accessibility_in_check">rei em xeque</string>
+    <string name="accessibility_selected">selecionada</string>
+    <string name="accessibility_move_available">movimento disponível</string>
+    <string name="accessibility_capture_available">captura disponível</string>
+    <string name="legal_move_marker" translatable="false">●</string>
+    <string name="capture_marker" translatable="false">◎</string>
 </resources>

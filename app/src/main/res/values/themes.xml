@@ -1,8 +1,14 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+<resources>
     <style name="Base.Theme.Gambitol" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/brand_gold</item>
+        <item name="colorOnPrimary">@color/surface_base</item>
+        <item name="colorSecondary">@color/brand_green</item>
+        <item name="colorSurface">@color/surface_elevated</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="android:windowBackground">@color/surface_base</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@color/surface_base</item>
+        <item name="android:windowLightStatusBar">false</item>
     </style>
 
     <style name="Theme.Gambitol" parent="Base.Theme.Gambitol" />
