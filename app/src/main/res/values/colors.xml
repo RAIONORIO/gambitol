@@ -5,8 +5,8 @@
     <color name="brand_gold">#F2C45E</color>
     <color name="brand_green">#2E6B4E</color>
     <color name="text_primary">#F7F4EA</color>
-    <color name="board_light">#F0DFC0</color>
-    <color name="board_dark">#3B7356</color>
+    <color name="board_light">#AD8B58</color>
+    <color name="board_dark">#35694E</color>
     <color name="board_border">#0A0E0C</color>
     <color name="board_selected">#A47B26</color>
     <color name="board_last_move">#78945B</color>
@@ -15,6 +15,6 @@
     <color name="capture_target">#8E1F2D</color>
     <color name="danger_check">#A52B36</color>
     <color name="danger_outline">#FFE3E5</color>
-    <color name="piece_white">#FFF9E9</color>
+    <color name="piece_white">#FFF3D6</color>
     <color name="piece_black">#101512</color>
 </resources>

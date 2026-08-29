@@ -91,8 +91,8 @@ public class MainActivity extends AppCompatActivity {
                 squareView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
                 TextViewCompat.setAutoSizeTextTypeUniformWithConfiguration(
                         squareView,
-                        18,
-                        44,
+                        20,
+                        48,
                         2,
                         TypedValue.COMPLEX_UNIT_SP
                 );
@@ -239,7 +239,8 @@ public class MainActivity extends AppCompatActivity {
                     this,
                     piece.getSide() == Side.WHITE ? R.color.piece_black : R.color.piece_white
             );
-            view.setShadowLayer(1.5f, 0, 0, shadowColor);
+            float shadowRadius = piece.getSide() == Side.WHITE ? 2f : 1.25f;
+            view.setShadowLayer(shadowRadius, 0, 0, shadowColor);
         } else if (legalDestination) {
             view.setText(captureDestination ? R.string.capture_marker : R.string.legal_move_marker);
             int legalMarkerColor = ((square.getRow() + square.getColumn()) & 1) == 0
@@ -401,25 +402,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private String pieceSymbol(Piece piece) {
-        if (piece.getSide() == Side.WHITE) {
-            switch (piece.getType()) {
-                case KING:
-                    return "♔";
-                case QUEEN:
-                    return "♕";
-                case ROOK:
-                    return "♖";
-                case BISHOP:
-                    return "♗";
-                case KNIGHT:
-                    return "♘";
-                case PAWN:
-                    return "♙";
-                default:
-                    throw new IllegalStateException("unknown piece type");
-            }
-        }
-
         switch (piece.getType()) {
             case KING:
                 return "♚";
